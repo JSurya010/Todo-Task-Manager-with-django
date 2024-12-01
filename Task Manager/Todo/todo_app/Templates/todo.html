@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font Awesome 5 Brands:wght@400&display=swap" />
+        <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+        <style>
+            body, input, b, a, .heading {
+                font-family: "Courier New", Courier, monospace;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="signup-login">
+            <div>
+                <div>
+                    <h1>Hello {{user}}</h1>
+                </div>
+                <div class=" task-box scr">
+                    <div class="heads">
+                        <div class="heading">What's your main task today?</div>
+                    </div>
+                    <div class="line"></div>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div>
+                            <label for="task"><b>Task</b></label>
+                            <input type="text" id="task" name="task" required class="todo-input inp" placeholder="What is the task today?">
+                        </div>
+                        
+                        <div>
+                            <label for="start_date"><b>Start Date</b></label>
+                            <input type="date" id="start_date" name="startdate" required class="todo-input inp">
+                        </div>
+                    
+                        <div>
+                            <label for="end_date"><b>End Date</b></label>
+                            <input type="date" id="end_date" name="enddate" required class="todo-input inp">
+                        </div>
+                    
+                        <div>
+                            <input class="submit-button" type="submit" value="Add Task">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/todo.js' %}"></script>
+    </body>
+
+</html>
